@@ -20,3 +20,5 @@ dist
 .bashrc
 .npm
 .mongo
+.ssh
+.pm2
