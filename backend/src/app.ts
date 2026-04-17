@@ -15,14 +15,14 @@ mongoose.connect(DB_ADDRESS);
 
 if (process.env.NODE_ENV === 'development') {
   app.use(cors());
-}
-
-if (process.env.NODE_ENV === 'production') {
+} else {
   app.use(
     cors({
       origin: [
         'mikheevk.nomorepartiessite.ru',
         'api.mikheevk.nomorepartiessite.ru',
+        'https://mikheevk.nomorepartiessite.ru',
+        'https://api.mikheevk.nomorepartiessite.ru',
       ],
     }),
   );
