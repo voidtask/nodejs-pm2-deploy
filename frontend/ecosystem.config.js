@@ -6,6 +6,7 @@ const {
   DEPLOY_PATH,
   DEPLOY_REPO,
   DEPLOY_REF = "origin/master",
+  DEPLOY_NGINX_SERVE_DIR,
 } = process.env;
 
 module.exports = {
