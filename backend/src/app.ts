@@ -11,7 +11,9 @@ import routes from './routes';
 
 const { PORT = 3000 } = process.env;
 const app = express();
-mongoose.connect(DB_ADDRESS);
+
+// eslint-disable-next-line no-console
+mongoose.connect(DB_ADDRESS).then(() => console.log('mongo connected'));
 
 if (process.env.NODE_ENV === 'development') {
   app.use(cors());
