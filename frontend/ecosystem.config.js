@@ -23,7 +23,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: DEPLOY_REPO,
       path: DEPLOY_PATH,
-      "post-deploy": "cd frontend && npm ci && npm run build",
+      "post-deploy": "cd frontend && npm ci && NODE_OPTIONS=--openssl-legacy-provider npm run build",
     },
   },
 };
