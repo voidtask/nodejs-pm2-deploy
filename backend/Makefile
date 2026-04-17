@@ -4,19 +4,19 @@ override PWD = $(shell pwd)
 override PROJ_DIR = $(shell pwd | xargs basename)
 override PROJ_ROOT = $(shell dirname $(PWD))
 
-override JAIL := firejail --seccomp --noroot --nosound --novideo --no3d --caps.drop=all --hostname=develop
 override JAIL_BASE := firejail --seccomp --noroot --nosound --novideo --no3d --caps.drop=all --hostname=develop
 override JAIL := $(JAIL_BASE) --private=./
 
 override NPM := $(JAIL) npm
 
-
-# Для PM2 deploy — доступ к проекту, .ssh и .gitconfig
 override JAIL_DEPLOY := $(JAIL_BASE) \
 	--whitelist=$(PROJ_ROOT) \
 	--whitelist=~/.ssh \
 	--whitelist=~/.gitconfig \
 	--whitelist=~/.pm2 \
+	--whitelist=/usr/bin/ssh \
+	--whitelist=/usr/bin/scp \
+	--whitelist=/usr/bin/git \
 	--read-only=~/.ssh \
 	--read-only=~/.gitconfig
 
