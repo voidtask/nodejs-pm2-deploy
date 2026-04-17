@@ -6,6 +6,7 @@ const urlRegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:\/?#[\]@!$&'
 
 const validateObjId = celebrate({
   params: Joi.object().keys({
+    // @ts-ignore
     id: Joi.string().required().custom((value, helpers) => {
       if (Types.ObjectId.isValid(value)) {
         return value;
